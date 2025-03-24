@@ -1,0 +1,42 @@
+{
+  "author": {
+    "name": "haiyang5210"
+  },
+  "bugs": {
+    "url": "https://github.com/femvc/jsonbyxpath/issues"
+  },
+  "dependencies": {},
+  "description": "get/set json value by xpath",
+  "devDependencies": {},
+  "directories": {},
+  "homepage": "https://github.com/femvc/jsonbyxpath#readme",
+  "keywords": [
+    "json",
+    "path",
+    "parseJSONValueType",
+    "getValueByXPath",
+    "findValueByXPath",
+    "setValueByXPath",
+    "js",
+    "node"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "haiyang5210",
+      "email": "haiyang5210@gmail.com"
+    }
+  ],
+  "name": "jsonbyxpath",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/femvc/jsonbyxpath.git"
+  },
+  "scripts": {
+    "test": "test.js"
+  },
+  "version": "1.0.0"
+}

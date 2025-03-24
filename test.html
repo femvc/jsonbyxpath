@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsonbyxpath Demo</title>
+</head>
+<body>
+
+  <h1>jsonbyxpath Demo</h1>
+  <p>演示 getValueByXPath 和 setValueByXPath 的使用。</p>
+
+  <div>
+    <h3>JSON Object:</h3>
+    <pre id="jsonDisplay"></pre>
+  </div>
+
+  <div>
+    <h3>Get Value by Path: </h3>
+    <input type="text" id="getPath" value="1-0-0-0-1:value"> <button onclick="getValue()">Get Value</button>
+    <div>e.g, 0-1:key</div>
+    
+    <p>Value: <pre id="getValueResult"></pre></p>
+  </div>
+
+  <div>
+    <h3>Set Value by Path:</h3>
+    <input type="text" id="setPath" value="1-0-0-0-1:value">
+    <input type="text" id="setValue" value="Toronto">
+    <button onclick="setValue()">Set Value</button>
+    <p>Updated JSON Object:</p>
+    <pre id="updatedJsonDisplay"></pre>
+  </div>
+
+  <script src="hui.js"></script>
+  <script src="jsonbyxpath.js"></script>
+  <script>
+    // 初始化 JSON 对象
+    const jsonObject = {
+      user: {
+        name: 'Alice',
+        address: {
+          street: 'Main St',
+          city: 'Springfield'
+        },
+        age: 30
+      },
+      m: {
+        'a.b': {
+          "c\\'\"d": {
+            'e[0]': [10, 20, 30],
+          },
+        },
+      }
+    };
+
+    // 显示初始 JSON 对象
+    document.getElementById('jsonDisplay').textContent = JSON.stringify(jsonObject, null, 2);
+
+    // 获取指定路径的值
+    function getValue() {
+      const path = document.getElementById('getPath').value;
+      const value = getValueByXPath(jsonObject, path);
+      document.getElementById('getValueResult').textContent = value !== undefined ? JSON.stringify(value, null, 2) : 'Path not found';
+    }
+
+    // 设置指定路径的值
+    function setValue() {
+      const path = document.getElementById('setPath').value;
+      const newValue = document.getElementById('setValue').value;
+      setValueByXPath(jsonObject, path, newValue);
+      
+      // 显示更新后的 JSON 对象
+      document.getElementById('updatedJsonDisplay').textContent = JSON.stringify(jsonObject, null, 2);
+    }
+  </script>
+
+</body>
+</html>
